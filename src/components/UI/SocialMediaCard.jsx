@@ -1,8 +1,9 @@
 import './ui.css'
+import {NavLink} from "react-router-dom";
 
-export function SocialMediaCard({image, mediaName, followers, imageAlt}) {
+export function SocialMediaCard({image, mediaName, followers, imageAlt, url}) {
     return (
-        <div className="social-media-card">
+        <NavLink to={url} className="social-media-card">
             <div className="media-card-container">
                 <img src={image} alt={imageAlt}/>
                 <div className="media-name">
@@ -13,6 +14,6 @@ export function SocialMediaCard({image, mediaName, followers, imageAlt}) {
                 </div>
             </div>
 
-        </div>
+        </NavLink>
     )
 }

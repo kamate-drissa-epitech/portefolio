@@ -1,6 +1,4 @@
 import './Home.css'
-import arrowRightIcon from "../../assets/arrow_right.svg"
-import lightIcon from "../../assets/light_mode.svg";
 import facebook from "../../assets/facebook.svg";
 import github from "../../assets/github.svg";
 import whatsapp from "../../assets/whatsapp.svg";
@@ -16,25 +14,30 @@ const MEDIAS = [
         name : "Facebook",
         image : facebook,
         alt : "Facebook img",
-        followers : '222k'
+        followers : '222k',
+        url : ''
     },
     {
         name : "WhatsApp",
         image : whatsapp,
         alt : "WhatsApp image",
-        followers : '300k'
+        followers : '300k',
+        url : ''
     },
     {
         name : "LinkedIn",
         image : linkedin,
         alt : "LinkedIn image",
-        followers : '+ 10k'
+        followers : '+ 10k',
+        url : 'https://www.linkedin.com/in/drissa-kamate-7255b4161/'
     },
     {
         name : "Github",
         image : github,
         alt : "Github image",
-        followers : '+ 10k'
+        followers : '+ 10k',
+        url : 'https://github.com/kamate-drissa-epitech'
+
     }
 ]
 
@@ -72,7 +75,7 @@ export  function Home() {
                 <section className="socials-medias">
                     {
                         MEDIAS.map((media, index) => (
-                            <SocialMediaCard mediaName={media.name} image={media.image} followers={media.followers} imageAlt={media.alt} />
+                            <SocialMediaCard url={media.url} mediaName={media.name} image={media.image} followers={media.followers} imageAlt={media.alt} key={index} />
                         ))
                     }
                 </section>
