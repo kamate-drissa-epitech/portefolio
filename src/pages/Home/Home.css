@@ -65,6 +65,14 @@
 
 }
 
+.home-container .self-description {
+    font-size: 14px;
+    line-height: 1.5;
+    font-style: italic;
+    text-align: center;
+}
+
+
 .socials-medias {
     display: flex;
     gap: 1rem;

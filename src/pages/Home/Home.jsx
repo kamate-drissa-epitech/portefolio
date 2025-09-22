@@ -64,7 +64,9 @@ export  function Home() {
                 </section>
 
                 <section className="self-description">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                    Passionné de développement full stack, je conçois des solutions
+                    digitales fiables et modernes. Auteur d’un portfolio de projets
+                    techniques illustrant mon expertise en front et back-end.
                 </section>
 
                 <section className="socials-medias">
