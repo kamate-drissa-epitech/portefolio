@@ -1,0 +1,72 @@
+.social-media-card {
+
+}
+
+.media-card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 14px;
+    align-items: center;
+
+}
+
+.media-card-container:hover .followers {
+    transform: scale(1.2);
+    transition: 0.3s;
+}
+
+.module-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 5px;
+    border: 1px solid grey;
+    width: 300px;
+    padding: 20px;
+    transition: 0.3s;
+
+
+}
+
+.module-card:hover {
+    border: 1px solid blue;
+    transform: translate(0, -5px);
+}
+
+.module-img-name {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+}
+
+.module-circle {
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    background-color: lightblue;
+    opacity: 0.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+.module-circle .circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+
+}
+
+.module-img-name .module-name{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.module-card .module-description {
+    font-size: 12px;
+
+}
+
+

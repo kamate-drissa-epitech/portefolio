@@ -1,0 +1,151 @@
+.header-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 5rem;
+
+}
+
+.menu-btn {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--secondary-color);
+    border-radius: 9999px;
+    gap: .5rem;
+    padding: 10px;
+}
+
+.menu-btn span {
+    font-weight: bold;
+}
+
+.header-container .menu-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+    z-index: 100;
+    background: white;
+}
+
+.header-container .menu-container.dark,
+.header-container .menu-container-desk.dark{
+    background: black;
+    color: white;
+}
+.header-container .menu-container.dark a,
+.header-container .menu-container-desk.dark a {
+    color: white;
+}
+
+
+.header-container .menu {
+    border: 1px solid var(--secondary-color);
+    width: 100%;
+    border-radius: 20px;
+    padding: 32px;
+
+}
+
+.header-container .menu-items-desk {
+    display: flex;
+    flex-direction: row;
+    gap: 2.5rem;
+    border: 1px solid var(--secondary-color);
+    padding:  12px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    list-style-type: none;
+
+}
+
+
+.menu-items {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+.menu-items-desk li {
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+
+.menu-items li {
+    border-bottom: 1px solid var(--secondary-color);
+    padding: 15px 0;
+}
+
+.menu-items li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.menu-items li.navigation {
+    border: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mode {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--secondary-color);
+    border-radius: 100%;
+    gap: .5rem;
+    padding: 10px;
+}
+
+
+.main-container {
+    padding-top: 3rem;
+
+}
+
+
+/* MOBILE */
+@media (max-width: 750px) {
+    .menu-container-desk {
+        display: none;
+    }
+    .empty {
+        display: none;
+    }
+}
+
+
+/* DESKTOP */
+@media (min-width: 750px) {
+
+
+    .menu-btn {
+        display: none;
+    }
+    .header-container {
+        justify-content: space-between;
+        padding:0  10rem;
+        width: 100%;
+    }
+    .main-container {
+        padding-right: 20rem;
+        padding-left: 20rem;
+    }
+    .menu-btn {
+        align-self: flex-end;
+    }
+
+}
+
+
+
+
+
+
