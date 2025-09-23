@@ -16,6 +16,7 @@ export function Layout() {
     const { show, setShow } = useShow(false);
     const menuRef = useRef(null);
     const buttonRef = useRef(null);
+    const full_year = new Date().getFullYear()
 
 
     useEffect(() => {
@@ -65,10 +66,10 @@ export function Layout() {
                     <div className={theme === "light" ? "menu-container-desk" : "menu-container-desk dark"}>
                         <nav className="menu-desk">
                             <ul className="menu-items-desk">
-                                <li><CustomLink path="" name="Home"/></li>
-                                <li><CustomLink path="about" name="A propos"/></li>
-                                <li> <CustomLink path="projects" name="Projets"/></li>
-                                <li><CustomLink path="blog" name="Blog"/></li>
+                                <CustomLink path="" name="Home"/>
+                                <CustomLink path="about" name="A propos"/>
+                                 <CustomLink path="projects" name="Projets"/>
+                                <CustomLink path="blog" name="Blog"/>
                             </ul>
                         </nav>
                     </div>
@@ -109,6 +110,22 @@ export function Layout() {
                 <main className="main-container">
                     <Outlet/>
                 </main>
+
+                <footer className="footer">
+                    <div className="footer-container">
+                        <nav className="footer-nav">
+                            <ul className="footer-links">
+                                <li><CustomLink path="" name="Home"/></li>
+                                <li><CustomLink path="about" name="A propos"/></li>
+                                <li><CustomLink path="projects" name="Projets"/></li>
+                                <li><CustomLink path="blog" name="Blog"/></li>
+                            </ul>
+                        </nav>
+                        <p className="right">
+                            &copy; {full_year} Kamate Drissa. <span className="mention">Tous droit réservé</span>
+                        </p>
+                    </div>
+                </footer>
             </ThemContext>
         </div>
 

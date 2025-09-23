@@ -8,7 +8,7 @@ import {ThemContext} from "../../hooks/globals/useContext.js";
 import {SocialMediaCard} from "../../components/UI/SocialMediaCard.jsx";
 import {ModuleCard} from "../../components/UI/ModuleCard.jsx";
 
-
+const whatsapp_number = import.meta.env.VITE_WHATSAPP_NUMBER
 const MEDIAS = [
     {
         name : "Facebook",
@@ -22,7 +22,7 @@ const MEDIAS = [
         image : whatsapp,
         alt : "WhatsApp image",
         followers : '300k',
-        url : ''
+        url : `https://wa.me/${whatsapp_number}`
     },
     {
         name : "LinkedIn",
@@ -51,7 +51,7 @@ export  function Home() {
 
                 <section className="profil-photo">
                     <div className="profil-photo-container">
-                        <img src="./drissa.kamate@epitech.eu.jpg" alt="profil picture"/>
+                        <img src="./drissa.kamate@epitech.eu.jpg" alt="kamate Drissa"/>
                     </div>
                 </section>
 
@@ -80,12 +80,12 @@ export  function Home() {
                     }
                 </section>
 
-                <section className="plateforms">
-                    <div className="plateforms-name">
-                        Newletters
-                    </div>
+                {/*<section className="plateforms">*/}
+                {/*    <div className="plateforms-name">*/}
+                {/*        Newletters*/}
+                {/*    </div>*/}
 
-                </section>
+                {/*</section>*/}
 
                 <section className="what-im-doing">
                     <p className="title">What I'm building</p>
@@ -106,13 +106,9 @@ export  function Home() {
                     </div>
                 </section>
 
-                <section className="contacts">
-                    Contacts
-                </section>
-
-                <section className="footer">
-                    Footer
-                </section>
+                {/*<section className="contacts">*/}
+                {/*    Contacts*/}
+                {/*</section>*/}
             </div>
         </div>
     )
