@@ -1,125 +1,241 @@
-.home {}
-
 .home-container {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    align-items: center;
 }
 
-.home-container .profil-photo {
-    display: flex;
-    justify-content: center;
-}
-
-.home-container .profil-photo .profil-photo-container {
-
+/* Profile photo */
+.profil-photo-container {
     text-align: center;
 }
 
-
 .profil-photo-container img {
-    width: 180px;
-    height: 180px;
+    width: 140px;
+    height: 140px;
     object-fit: cover;
-    border-radius: 20px;
-    transition: 0.5s;
-
+    border-radius: var(--radius-xl);
+    border: 3px solid var(--bg-elevated);
+    box-shadow: var(--shadow-lg);
+    transition: transform var(--transition-slow);
 }
 
 .profil-photo-container img:hover {
-    transform: scale(1.1);
-    transition: 0.5s;
+    transform: scale(1.05) rotate(-2deg);
 }
 
-.profession {
-    display: flex;
-    justify-content: center;
-}
-
+/* Profession badge */
 .profession-container {
-    display: flex;
-    border: 1px solid var(--secondary-color);
-   justify-content: center;
-    padding: 12px 16px;
+    display: inline-flex;
     align-items: center;
-    gap: .5rem;
-    border-radius: 9999px;
-    background-color: #FAFAFA;
-    color: #1E40AF;
-    font-weight: 500;
-
-}
-.profession-container.dark {
-    color : #93C5FD ;
-    background-color: #000000 ;
+    gap: 0.6rem;
+    border: 1px solid var(--border-color);
+    padding: 7px 16px;
+    border-radius: var(--radius-full);
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-medium);
 }
 
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--success);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--success) 25%, transparent);
+    animation: pulse 2s infinite;
+    display: inline-block;
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+
+/* Name */
 .home-container .name {
     text-align: center;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: var(--fs-2xl);
+    font-weight: var(--fw-extrabold);
+    letter-spacing: var(--tracking-tight);
+    color: var(--text-primary);
+    line-height: var(--lh-tight);
 }
 
 .name .full-name {
-    color: #1E40AF ;
+    background: linear-gradient(
+        90deg,
+        var(--accent) 0%,
+        color-mix(in srgb, var(--accent) 60%, #a855f7) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
+/* Description */
 .home-container .self-description {
-    font-size: 14px;
-    line-height: 1.5;
-    font-style: italic;
+    font-family: var(--font-sans);
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-regular);
+    line-height: var(--lh-normal);
+    color: var(--text-secondary);
     text-align: center;
+    max-width: 600px;
 }
 
-
+/* Socials */
 .socials-medias {
-    display: flex;
-    gap: 1rem;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    width: 100%;
 }
 
-
+/* What I'm building */
 .what-im-doing {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    border-radius: 5px;
-    border: 1px solid grey;
-    padding: 20px;
-
+    gap: 1.5rem;
+    width: 100%;
+    margin-top: 1rem;
 }
 
-.what-im-doing .title {
-    font-size: 20px;
-    font-weight: bold;
+.section-head {
+    text-align: left;
 }
 
-.what-im-doing .modules {
+.section-head .title {
+    font-size: var(--fs-xl);
+    font-weight: var(--fw-bold);
+    letter-spacing: var(--tracking-tight);
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.section-head .subtitle {
+    font-size: var(--fs-sm);
+    color: var(--text-muted);
+}
+
+.modules {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 1rem;
 }
 
-/* DESKTOP */
+/* CTA */
+.cta-section {
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+.cta-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.cta-card h3 {
+    font-size: var(--fs-lg);
+    font-weight: var(--fw-bold);
+    color: var(--text-primary);
+}
+
+.cta-card p {
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-regular);
+    color: var(--text-secondary);
+    max-width: 420px;
+    line-height: var(--lh-normal);
+}
+
+.cta-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border-radius: var(--radius-full);
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0;
+    transition: all var(--transition-fast);
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #ffffff;
+    border-color: var(--accent);
+}
+
+.btn-primary:hover {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+.btn-outline:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (min-width: 560px) {
+    .socials-medias {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
 @media (min-width: 750px) {
-    .home {
-
-    }
     .home-container {
-
-        justify-content: center;
-        align-items: center;
+        gap: 2.5rem;
     }
+
+    .profil-photo-container img {
+        width: 180px;
+        height: 180px;
+    }
+
     .home-container .name {
-        font-size: 30px;
-    }
-    .home-container .self-description {
-        font-size: 20px;
-        line-height: 1.3;
+        font-size: var(--fs-3xl);
     }
 
+    .home-container .self-description {
+        font-size: var(--fs-sm);
+    }
+
+    .modules {
+        gap: 1.25rem;
+    }
 }

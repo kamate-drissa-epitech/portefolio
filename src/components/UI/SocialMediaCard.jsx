@@ -1,19 +1,20 @@
-import './ui.css'
-import {NavLink} from "react-router-dom";
+import "./ui.css";
 
-export function SocialMediaCard({image, mediaName, followers, imageAlt, url}) {
+export function SocialMediaCard({ image, mediaName, followers, imageAlt, url }) {
     return (
-        <NavLink to={url} className="social-media-card">
+        <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-media-card"
+        >
             <div className="media-card-container">
-                <img src={image} alt={imageAlt}/>
-                <div className="media-name">
-                    {mediaName}
+                <div className="media-icon">
+                    <img src={image} alt={imageAlt} />
                 </div>
-                <div className="followers">
-                    {followers}
-                </div>
+                <div className="media-name">{mediaName}</div>
+                {followers && <div className="followers">{followers}</div>}
             </div>
-
-        </NavLink>
-    )
+        </a>
+    );
 }

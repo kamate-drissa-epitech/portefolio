@@ -1,115 +1,151 @@
-import './Home.css'
+import "./Home.css";
 import facebook from "../../assets/facebook.svg";
 import github from "../../assets/github.svg";
 import whatsapp from "../../assets/whatsapp.svg";
 import linkedin from "../../assets/linkedin.svg";
-import {useContext} from "react";
-import {ThemContext} from "../../hooks/globals/useContext.js";
-import {SocialMediaCard} from "../../components/UI/SocialMediaCard.jsx";
-import {ModuleCard} from "../../components/UI/ModuleCard.jsx";
+import { SocialMediaCard } from "../../components/UI/SocialMediaCard.jsx";
+import { ModuleCard } from "../../components/UI/ModuleCard.jsx";
+import { NavLink } from "react-router-dom";
 
-const whatsapp_number = import.meta.env.VITE_WHATSAPP_NUMBER
+const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER;
+
 const MEDIAS = [
     {
-        name : "Facebook",
-        image : facebook,
-        alt : "Facebook img",
-        followers : '222k',
-        url : ''
+        name: "GitHub",
+        image: github,
+        alt: "GitHub",
+        followers: "Open source",
+        url: "https://github.com/kamate-drissa-epitech",
     },
     {
-        name : "WhatsApp",
-        image : whatsapp,
-        alt : "WhatsApp image",
-        followers : '300k',
-        url : `https://wa.me/${whatsapp_number}`
+        name: "LinkedIn",
+        image: linkedin,
+        alt: "LinkedIn",
+        followers: "Parcours",
+        url: "https://www.linkedin.com/in/drissa-kamate-7255b4161/",
     },
     {
-        name : "LinkedIn",
-        image : linkedin,
-        alt : "LinkedIn image",
-        followers : '+ 10k',
-        url : 'https://www.linkedin.com/in/drissa-kamate-7255b4161/'
+        name: "WhatsApp",
+        image: whatsapp,
+        alt: "WhatsApp",
+        followers: "Contact",
+        url: whatsappNumber ? `https://wa.me/${whatsappNumber}` : "#",
     },
     {
-        name : "Github",
-        image : github,
-        alt : "Github image",
-        followers : '+ 10k',
-        url : 'https://github.com/kamate-drissa-epitech'
+        name: "Facebook",
+        image: facebook,
+        alt: "Facebook",
+        followers: "Réseau",
+        url: "#",
+    },
+];
 
-    }
-]
+const MODULES = [
+    {
+        name: "Bus Tickets",
+        description:
+            "Application web permettant d’acheter des tickets de bus et de générer des PDF, avec stockage PostgreSQL.",
+        tag: "Full-stack",
+        color: "#2563eb",
+    },
+    {
+        name: "Portfolio",
+        description:
+            "Ce portfolio développé en React.js — design minimaliste, thème clair/sombre, responsive.",
+        tag: "React",
+        color: "#16a34a",
+    },
+    {
+        name: "System Design",
+        description:
+            "Notes et schémas sur la conception de systèmes : scalabilité, bases de données, architectures distribuées.",
+        tag: "En cours",
+        color: "#a855f7",
+    },
+];
 
-export  function Home() {
-    const theme = useContext(ThemContext)
-
-
+export function Home() {
     return (
         <div className="home">
             <div className="home-container">
-
                 <section className="profil-photo">
                     <div className="profil-photo-container">
-                        <img src="./drissa.kamate@epitech.eu.jpg" alt="kamate Drissa"/>
+                        <img src="/drissa.kamate@epitech.eu.jpg" alt="Kamate Drissa" />
                     </div>
                 </section>
 
                 <section className="profession">
-                    <div className={theme === 'light' ? 'profession-container' : 'profession-container dark'}>
-                        <span onClick={() => null}>Développeur d'application web & mobile</span>
-                        {/*<img src={arrowRightIcon} alt="arraw rightIcon"/>*/}
+                    <div className="profession-container">
+                        <span className="status-dot" />
+                        <span>Développeur Full-Stack · Web & Mobile</span>
                     </div>
                 </section>
 
                 <section className="name">
-                    Biennvenue, je suis <span className="full-name">Kamate Drissa</span>
+                    Bienvenue, je suis <span className="full-name">Kamate Drissa</span>
                 </section>
 
                 <section className="self-description">
-                    Passionné de développement full stack, je conçois des solutions
-                    digitales fiables et modernes. Auteur d’un portfolio de projets
-                    techniques illustrant mon expertise en front et back-end.
+                    Passionné de développement full-stack, je conçois des solutions
+                    digitales fiables et modernes. Curieux par nature, j’aime transformer
+                    des idées concrètes en produits robustes — du front-end soigné au
+                    back-end bien architecturé.
                 </section>
 
                 <section className="socials-medias">
-                    {
-                        MEDIAS.map((media, index) => (
-                            <SocialMediaCard url={media.url} mediaName={media.name} image={media.image} followers={media.followers} imageAlt={media.alt} key={index} />
-                        ))
-                    }
+                    {MEDIAS.map((media) => (
+                        <SocialMediaCard
+                            key={media.name}
+                            url={media.url}
+                            mediaName={media.name}
+                            image={media.image}
+                            followers={media.followers}
+                            imageAlt={media.alt}
+                        />
+                    ))}
                 </section>
 
-                {/*<section className="plateforms">*/}
-                {/*    <div className="plateforms-name">*/}
-                {/*        Newletters*/}
-                {/*    </div>*/}
-
-                {/*</section>*/}
-
                 <section className="what-im-doing">
-                    <p className="title">What I'm building</p>
+                    <div className="section-head">
+                        <p className="title">Ce que je construis</p>
+                        <p className="subtitle">
+                            Projets et expérimentations en cours.
+                        </p>
+                    </div>
                     <div className="modules">
-
-                        <ModuleCard
-                            description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, quos."
-                            moduleName="Newsletter"
-                            bgColor="red" />
-                        <ModuleCard
-                            description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, quos."
-                            moduleName="Newsletter"
-                            bgColor="green" />
-                        <ModuleCard
-                            description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, quos."
-                            moduleName="Newsletter"
-                            bgColor="purple" />
+                        {MODULES.map((m) => (
+                            <ModuleCard
+                                key={m.name}
+                                moduleName={m.name}
+                                description={m.description}
+                                bgColor={m.color}
+                                tag={m.tag}
+                            />
+                        ))}
                     </div>
                 </section>
 
-                {/*<section className="contacts">*/}
-                {/*    Contacts*/}
-                {/*</section>*/}
+                <section className="cta-section">
+                    <div className="cta-card">
+                        <h3>Envie d’échanger ?</h3>
+                        <p>
+                            Je suis ouvert aux opportunités et collaborations. N’hésitez
+                            pas à me contacter.
+                        </p>
+                        <div className="cta-actions">
+                            <NavLink to="/about" className="btn btn-primary">
+                                En savoir plus
+                            </NavLink>
+                            <a
+                                href="mailto:kat.dris13@gmail.com"
+                                className="btn btn-outline"
+                            >
+                                Me contacter
+                            </a>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
-    )
+    );
 }
