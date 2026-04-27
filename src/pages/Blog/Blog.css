@@ -55,7 +55,7 @@
 
 .blog-card {
     padding: 1.25rem;
-    background: var(--bg-secondary);
+    background: var(--bg-elevated);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
     transition: border-color var(--transition), transform var(--transition),

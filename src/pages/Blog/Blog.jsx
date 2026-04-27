@@ -2,23 +2,23 @@ import "./Blog.css";
 
 const UPCOMING = [
     {
-        title: "Bien débuter avec React Router 7",
+        title: "React Router 7 : ce qui a changé",
         description:
-            "Tour d’horizon des nouveautés, de la configuration et des bonnes pratiques de routing moderne.",
+            "Le routing moderne expliqué simplement, avec les pièges à éviter quand on migre depuis la v6.",
         tag: "React",
         date: "À venir",
     },
     {
-        title: "Comprendre le System Design pas à pas",
+        title: "System Design pas à pas",
         description:
-            "Les concepts clés (scalabilité, cache, load balancing) illustrés par des cas concrets.",
+            "Scalabilité, cache, load balancing : les concepts clés démystifiés à travers des cas concrets que tu peux vraiment construire.",
         tag: "Architecture",
         date: "À venir",
     },
     {
-        title: "Laravel & Django : quand choisir quoi ?",
+        title: "Laravel vs Django : mon retour honnête",
         description:
-            "Comparaison honnête de deux frameworks back-end que j’utilise au quotidien.",
+            "Deux frameworks que j’utilise au quotidien — quand l’un brille, quand l’autre prend le relais. Sans dogme.",
         tag: "Back-end",
         date: "À venir",
     },
@@ -30,14 +30,15 @@ export function Blog() {
             <header className="blog-header">
                 <h1>Blog</h1>
                 <p>
-                    Je partagerai bientôt ici des notes, tutoriels et retours
-                    d’expérience autour du développement web et du system design.
+                    Mes lectures, mes essais et mes erreurs — celles qui m’ont
+                    vraiment fait progresser. Pas de remplissage, juste ce qui
+                    vaut la peine d’être partagé.
                 </p>
                 <div className="coming-soon-pill">Bientôt disponible</div>
             </header>
 
             <section className="blog-preview">
-                <h2 className="preview-title">Dans les tuyaux</h2>
+                <h2 className="preview-title">Prochains articles</h2>
                 <div className="blog-list">
                     {UPCOMING.map((post) => (
                         <article className="blog-card" key={post.title}>

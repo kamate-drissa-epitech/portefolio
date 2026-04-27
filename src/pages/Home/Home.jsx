@@ -42,23 +42,23 @@ const MEDIAS = [
 
 const MODULES = [
     {
-        name: "Bus Tickets",
+        name: "Simulation de prêt — EDANE",
         description:
-            "Application web permettant d’acheter des tickets de bus et de générer des PDF, avec stockage PostgreSQL.",
+            "Un outil métier qui aide les conseillers à projeter un crédit en quelques secondes. Calculs automatisés, exports prêts à signer.",
         tag: "Full-stack",
         color: "#2563eb",
     },
     {
-        name: "Portfolio",
+        name: "App mobile de géolocalisation",
         description:
-            "Ce portfolio développé en React.js — design minimaliste, thème clair/sombre, responsive.",
-        tag: "React",
+            "Suivi des clients sur le terrain en temps réel — pensée pour les équipes commerciales mobiles, avec gestion fine des rôles.",
+        tag: "Mobile",
         color: "#16a34a",
     },
     {
         name: "System Design",
         description:
-            "Notes et schémas sur la conception de systèmes : scalabilité, bases de données, architectures distribuées.",
+            "Mes notes vivantes sur la conception de systèmes à l’échelle. Ce que j’apprends en lisant, en construisant, et en cassant des trucs.",
         tag: "En cours",
         color: "#a855f7",
     },
@@ -86,10 +86,10 @@ export function Home() {
                 </section>
 
                 <section className="self-description">
-                    Passionné de développement full-stack, je conçois des solutions
-                    digitales fiables et modernes. Curieux par nature, j’aime transformer
-                    des idées concrètes en produits robustes — du front-end soigné au
-                    back-end bien architecturé.
+                    Je transforme des idées en produits qui tournent vraiment —
+                    de l’interface utilisateur à l’architecture serveur. Mon truc :
+                    comprendre un problème en profondeur, livrer du code propre,
+                    et faire en sorte que ça tienne la charge.
                 </section>
 
                 <section className="socials-medias">
@@ -109,7 +109,7 @@ export function Home() {
                     <div className="section-head">
                         <p className="title">Ce que je construis</p>
                         <p className="subtitle">
-                            Projets et expérimentations en cours.
+                            Quelques projets sur lesquels je travaille en ce moment.
                         </p>
                     </div>
                     <div className="modules">
@@ -127,17 +127,17 @@ export function Home() {
 
                 <section className="cta-section">
                     <div className="cta-card">
-                        <h3>Envie d’échanger ?</h3>
+                        <h3>Un projet en tête ?</h3>
                         <p>
-                            Je suis ouvert aux opportunités et collaborations. N’hésitez
-                            pas à me contacter.
+                            Une opportunité, une collaboration, ou juste l’envie
+                            de discuter tech — écris-moi, je réponds vite.
                         </p>
                         <div className="cta-actions">
                             <NavLink to="/about" className="btn btn-primary">
-                                En savoir plus
+                                Mon parcours
                             </NavLink>
                             <a
-                                href="mailto:kat.dris13@gmail.com"
+                                href="mailto:drissa.kamate@epitech.eu"
                                 className="btn btn-outline"
                             >
                                 Me contacter

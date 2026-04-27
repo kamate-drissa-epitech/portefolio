@@ -7,7 +7,7 @@ import closeIcon from "../../assets/close.svg";
 import { useEffect, useRef, useState } from "react";
 import { useShow } from "../../hooks/globals/useShow.js";
 import { ThemContext } from "../../hooks/globals/useContext.js";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { CustomLink } from "../Navigation/CustomLink.jsx";
 
 const THEME_KEY = "portfolio-theme";
@@ -21,13 +21,15 @@ const NAV_ITEMS = [
 
 export function Layout() {
     const [theme, setTheme] = useState(() => {
-        if (typeof window === "undefined") return "light";
-        return localStorage.getItem(THEME_KEY) || "light";
+        if (typeof window === "undefined") return "dark";
+        return localStorage.getItem(THEME_KEY) || "dark";
     });
     const { show, setShow } = useShow(false);
     const menuRef = useRef(null);
     const buttonRef = useRef(null);
     const fullYear = new Date().getFullYear();
+    const location = useLocation();
+    const isWidePage = location.pathname.startsWith("/projects");
 
     useEffect(() => {
         localStorage.setItem(THEME_KEY, theme);
@@ -60,6 +62,7 @@ export function Layout() {
     return (
         <div className={theme === "light" ? "layout-container" : "layout-container dark"}>
             <ThemContext value={theme}>
+                <div className="layout-card">
                 <header className="header-container">
                     <div className="header-inner">
                         <div
@@ -133,7 +136,7 @@ export function Layout() {
                 </header>
 
                 <main className="main-container">
-                    <div className="main-inner">
+                    <div className={isWidePage ? "main-inner main-inner-wide" : "main-inner"}>
                         <Outlet />
                     </div>
                 </main>
@@ -155,6 +158,7 @@ export function Layout() {
                         </p>
                     </div>
                 </footer>
+                </div>
             </ThemContext>
         </div>
     );

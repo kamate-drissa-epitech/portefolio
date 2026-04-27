@@ -1,14 +1,19 @@
+/* ============ LAYOUT CARD ============ */
+.layout-card {
+    max-width: 1280px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background: var(--bg-secondary);
+    display: flex;
+    flex-direction: column;
+}
+
 /* ============ HEADER ============ */
 .header-container {
-    position: sticky;
-    top: 0;
-    z-index: 50;
+    position: relative;
+    z-index: 5;
     padding: 0.75rem 1rem;
-    background: color-mix(in srgb, var(--bg-primary) 85%, transparent);
-    backdrop-filter: saturate(180%) blur(12px);
-    -webkit-backdrop-filter: saturate(180%) blur(12px);
-    border-bottom: 1px solid transparent;
-    transition: border-color var(--transition);
+    background: transparent;
 }
 
 .header-inner {
@@ -16,9 +21,17 @@
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     gap: 1rem;
     position: relative;
+}
+
+/* Mobile: theme toggle absolutely on the right, menu-btn stays centered */
+.mode.mode-mobile {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 /* Menu button (mobile) */
@@ -123,10 +136,17 @@
 .mode img {
     width: 18px;
     height: 18px;
+    filter: brightness(0);
+    opacity: 0.85;
+    transition: opacity var(--transition-fast);
+}
+
+.mode:hover img {
+    opacity: 1;
 }
 
 .layout-container.dark .mode img {
-    filter: invert(1);
+    filter: brightness(0) invert(1);
 }
 
 /* Theme toggle inside the desktop pill (no border, smaller) */
@@ -229,7 +249,8 @@
 
 /* ============ MAIN ============ */
 .main-container {
-    padding: 3rem 1rem 2rem;
+    padding: 2rem 1rem;
+    flex: 1;
 }
 
 .main-inner {
@@ -237,10 +258,14 @@
     margin: 0 auto;
 }
 
+.main-inner.main-inner-wide {
+    max-width: 1100px;
+}
+
 /* ============ FOOTER ============ */
 .footer {
-    margin-top: 4rem;
-    padding: 2.5rem 1rem;
+    margin-top: auto;
+    padding: 2rem 1rem;
     border-top: 1px solid var(--border-color);
 }
 
@@ -282,6 +307,11 @@
 
 /* ============ RESPONSIVE ============ */
 @media (min-width: 750px) {
+    .layout-card {
+        border-left: 1px solid var(--border-color);
+        border-right: 1px solid var(--border-color);
+    }
+
     .header-container {
         padding: 0.75rem 2rem;
     }
@@ -300,6 +330,10 @@
     }
 
     .main-container {
-        padding: 4rem 2rem 3rem;
+        padding: 3rem 2rem;
     }
+
+    /* .main-inner {
+        padding: 3rem 2.5rem;
+    } */
 }
