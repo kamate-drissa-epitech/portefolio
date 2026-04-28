@@ -7,7 +7,7 @@ import { SocialMediaCard } from "../../components/UI/SocialMediaCard.jsx";
 import { ModuleCard } from "../../components/UI/ModuleCard.jsx";
 import { NavLink } from "react-router-dom";
 
-const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER;
+const whatsappNumber = "2250575736417";
 
 const MEDIAS = [
     {
