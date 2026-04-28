@@ -238,22 +238,17 @@ export function Projects() {
                             </div>
                         </div>
 
-                        <div className="project-links">
-                            <a
-                                href={project.live}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                Voir en ligne →
-                            </a>
-                            <a
-                                href={project.code}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                Code source →
-                            </a>
-                        </div>
+                        {!(project.live === '#' && project.code === '#') && (
+                            <div className="project-links">
+                                <a href={project.live} target="_blank" rel="noopener noreferrer">
+                                    Voir en ligne →
+                                </a>
+                                <a href={project.code} target="_blank" rel="noopener noreferrer">
+                                    Code source →
+                                </a>
+                            </div>
+                            )
+                        }
                     </article>
                 ))}
             </div>
