@@ -6,11 +6,14 @@ import closeIcon from "../../assets/close.svg";
 
 import { useEffect, useRef, useState } from "react";
 import { useShow } from "../../hooks/globals/useShow.js";
+import { useVisitorCount } from "../../hooks/globals/useVisitorCount.js";
 import { ThemContext } from "../../hooks/globals/useContext.js";
 import { Outlet, useLocation } from "react-router-dom";
 import { CustomLink } from "../Navigation/CustomLink.jsx";
 
 const THEME_KEY = "portfolio-theme";
+const ADMIN_KEY = "portfolio-admin";
+const ADMIN_SECRET = "kamate-stats";
 
 const NAV_ITEMS = [
     { path: "", name: "Accueil" },
@@ -25,6 +28,11 @@ export function Layout() {
         return localStorage.getItem(THEME_KEY) || "dark";
     });
     const { show, setShow } = useShow(false);
+    const { count, error: countError } = useVisitorCount();
+    const [isAdmin, setIsAdmin] = useState(() => {
+        if (typeof window === "undefined") return false;
+        return localStorage.getItem(ADMIN_KEY) === "1";
+    });
     const menuRef = useRef(null);
     const buttonRef = useRef(null);
     const fullYear = new Date().getFullYear();
@@ -34,6 +42,18 @@ export function Layout() {
     useEffect(() => {
         localStorage.setItem(THEME_KEY, theme);
     }, [theme]);
+
+    useEffect(() => {
+        const params = new URLSearchParams(window.location.search);
+        const value = params.get("admin");
+        if (value === ADMIN_SECRET) {
+            localStorage.setItem(ADMIN_KEY, "1");
+            setIsAdmin(true);
+        } else if (value === "off") {
+            localStorage.removeItem(ADMIN_KEY);
+            setIsAdmin(false);
+        }
+    }, []);
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -156,6 +176,14 @@ export function Layout() {
                             &copy; {fullYear} Kamate Drissa.{" "}
                             <span className="mention">Tous droits réservés.</span>
                         </p>
+                        {isAdmin && !countError && (
+                            <p className="visitor-count" aria-live="polite">
+                                <span className="visitor-dot" aria-hidden="true" />
+                                {count !== null
+                                    ? `${count.toLocaleString("fr-FR")} vues`
+                                    : "Chargement…"}
+                            </p>
+                        )}
                     </div>
                 </footer>
                 </div>
